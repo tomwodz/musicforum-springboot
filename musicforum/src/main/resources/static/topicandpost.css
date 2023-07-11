@@ -1,0 +1,52 @@
+.post {
+    background-color: #fafad2;
+    border: 2px solid #101046;
+    text-align: left;
+    margin: 10px;
+}
+
+.post:hover {
+    background-color: #FDF5E6;
+    border: 2px solid #101046;
+    text-align: left;
+    margin: 10px;
+}
+
+.post .authorPost{
+    width: 10%;
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+.post .contextPost{
+    font-size: 14px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.post .dateCreation{
+    font-size: 12px;
+    margin: 5px;
+    display: block;
+}
+
+.titleTopic {
+    width: 50%;
+    background-color: #fafad2;
+    border: 2px solid #101046;
+    text-align: left;
+    margin: 10px auto;
+    display: block;
+}
+
+.textarea {
+    height: 80px;
+    width: 50%;
+    background-color: #fafad2;
+    border: 2px solid #101046;
+    text-align: left;
+    margin: 10px auto;
+    display: block;
+}

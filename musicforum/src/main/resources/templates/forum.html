@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Forum</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <div th:each="topic : ${topics}" class="topic">
+        <a th:href="@{/forum/topic/post/{id}(id=${topic.idTopic})}">
+            <div th:text="${topic.topicTitle}"></div>
+        </a>
+        <a th:if="${admin}" th:href="@{/forum/topic/delete/{id}(id=${topic.idTopic})}" class="button">Usuń Temat</a>
+    </div>
+    <div><a href="/forum/topic/add" class="button" th:if="${logged}">Dodaj Temat</a></div>
+</div>
+</body>
+</html>

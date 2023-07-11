@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="logo" th:fragment="logo">
+    <p>music-springboot tomwodz</p>
+</div>
+<div id="menu" th:fragment="menu">
+    <a href="/main" class="button">Strona główna</a>
+    <a href="/forum" class="button">Forum</a>
+    <a th:if="${!logged}" href="/login" class="button">Zaloguj</a>
+    <a th:if="${logged}" href="/logout" class="button">Wyloguj</a>
+</div>
+</body>
+</html>
