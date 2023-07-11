@@ -10,9 +10,9 @@
 </div>
 <div id="menu" th:fragment="menu">
     <a href="/main" class="button">Strona główna</a>
-    <a href="/forum" class="button">Forum</a>
-    <a th:if="${!logged}" href="/login" class="button">Zaloguj</a>
-    <a th:if="${logged}" href="/logout" class="button">Wyloguj</a>
+    <a href="/view/forum" class="button">Forum</a>
+    <a th:if="${!logged}" href="/view/login" class="button">Zaloguj</a>
+    <a th:if="${logged}" href="/view/logout" class="button">Wyloguj</a>
 </div>
 </body>
 </html>

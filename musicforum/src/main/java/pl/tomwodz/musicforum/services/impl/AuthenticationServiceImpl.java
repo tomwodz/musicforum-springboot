@@ -1,32 +1,33 @@
 package pl.tomwodz.musicforum.services.impl;
 
 import jakarta.annotation.Resource;
+import lombok.AllArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
-import pl.tomwodz.musicforum.database.IUserDAO;
 import pl.tomwodz.musicforum.exception.LoginAlreadyExistException;
 import pl.tomwodz.musicforum.model.User;
+import pl.tomwodz.musicforum.repository.IUserRepository;
 import pl.tomwodz.musicforum.services.IAuthenticationService;
 import pl.tomwodz.musicforum.session.SessionData;
 
+import java.util.Optional;
+
 @Service
+@AllArgsConstructor
 public class AuthenticationServiceImpl implements IAuthenticationService {
 
-   IUserDAO userDAO;
+   private final IUserRepository userRepository;
 
     @Resource
     SessionData sessionData;
 
-    public AuthenticationServiceImpl(IUserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
 
     @Override
     public void authenticate(String login, String password) {
-        User user = this.userDAO.getUserByLogin(login);
-        if (user != null && user.getPassword().equals(DigestUtils.md5Hex(password))) {
-            user.setPassword(null);
-            this.sessionData.setUser(user);
+        Optional<User> userBox = this.userRepository.findByLogin(login);
+        if (userBox.isPresent() && userBox.get().getPassword().equals(DigestUtils.md5Hex(password))) {
+            userBox.get().setPassword(null);
+            this.sessionData.setUser(userBox.get());
         }
     }
     @Override
@@ -36,10 +37,10 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 
     @Override
     public void register(User user) throws LoginAlreadyExistException {
-        if (this.userDAO.getUserByLogin(user.getLogin()) != null) {
+        if (this.userRepository.findByLogin(user.getLogin()).isPresent()) {
             throw new LoginAlreadyExistException();
         }
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
-        this.userDAO.persistUser(user);
+        this.userRepository.save(user);
     }
 }

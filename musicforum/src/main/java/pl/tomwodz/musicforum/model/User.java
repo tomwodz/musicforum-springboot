@@ -1,6 +1,8 @@
 package pl.tomwodz.musicforum.model;
 
+import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Value;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8,18 +10,25 @@ import lombok.*;
 @Setter
 @ToString
 @EqualsAndHashCode
+@Entity
+@Table(name = "tuser")
 public class User {
-    private int idUser;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String login;
     private String password;
     private String name;
     private String surname;
     private String email;
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public static User copyOf(User user){
         User result = new User();
-        result.idUser = user.idUser;
+        result.id = user.id;
         result.login = user.login;
         result.password = user.password;
         result.name = user.name;

@@ -1,8 +1,7 @@
 package pl.tomwodz.musicforum.model;
 
+import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.ZonedDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,10 +9,19 @@ import java.time.ZonedDateTime;
 @Setter
 @ToString
 @EqualsAndHashCode
+@Entity
+@Table(name = "tpost")
 public class Post {
-    private int idPost;
-    private int idUserAuthorOfPost;
-    private String authorPost;
-    private String contextPost;
-    private ZonedDateTime dateCreation;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Thread thread;
+
+    private String content;
 }

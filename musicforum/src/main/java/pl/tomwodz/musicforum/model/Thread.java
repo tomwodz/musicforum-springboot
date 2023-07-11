@@ -10,16 +10,19 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "ttopic")
-public class Topic {
+@Table(name = "tthread")
+public class Thread {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
+    @ManyToOne
+    private Topic topic;
+
     @ManyToOne
     private User author;
-
-    private String title;
 
 }
