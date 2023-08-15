@@ -23,7 +23,7 @@ public class ThreadViewController {
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public String getTread(Model model, @PathVariable Long id){
         ModelUtils.addCommonDataToModel(model, this.sessionData);
-        model.addAttribute("postsByThreadId", this.postRetriever.findByPostId(id));
+        model.addAttribute("postsByThreadId", this.postRetriever.findByThreadId(id));
         return "thread";
     }
 

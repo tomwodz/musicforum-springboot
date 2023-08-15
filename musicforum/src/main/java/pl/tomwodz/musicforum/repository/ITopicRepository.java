@@ -10,4 +10,6 @@ public interface ITopicRepository extends Repository<Topic, Long> {
     List<Topic> findAll();
 
     Optional<Topic> findById(Long id);
+
+    Topic save(Topic topic);
 }

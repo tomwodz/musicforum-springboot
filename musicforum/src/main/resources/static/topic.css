@@ -1,0 +1,13 @@
+.topic .author{
+    font-size: 14px;
+    margin: 5px;
+    display: inline-block;
+    width: 10%;
+}
+
+.topic .title{
+    font-size: 22px;
+    margin: 5px;
+    display: inline-block;
+}
+

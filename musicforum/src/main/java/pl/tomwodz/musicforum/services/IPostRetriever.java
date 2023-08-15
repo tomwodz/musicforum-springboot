@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IPostRetriever {
 
-    List<Post> findByPostId(Long id);
+    List<Post> findByThreadId(Long id);
 
 }

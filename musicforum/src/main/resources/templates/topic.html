@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <title>Music Forum</title>
     <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/topic.css">
 </head>
 <body>
 <div th:replace="~{fragments.html :: logo}"></div>
 <div th:replace="~{fragments.html :: menu}"></div>
 <div id="content">
     <div th:each="thread : ${threadsByTopicId}" class="topic">
+        <div th:text="${thread.author.login}" class="author"></div>
         <a th:href="@{/view/forum/topic/thread/{id}(id=${thread.id})}">
-            <div th:text="${thread.name}"></div>
+            <div th:text="${thread.getTitle}" class="title"></div>
         </a>
-        <div th:text="${thread.author.login}"></div>
     </div>
 </div>
 </body>

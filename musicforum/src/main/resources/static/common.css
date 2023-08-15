@@ -52,10 +52,17 @@ body {
 }
 
 #content {
-    background-color: #191970;
+    background-color: #1d1d80;
     border: 2px solid #101046;
     width: 70%;
     margin: 20px auto;
+    text-align: center;
+}
+
+.menu_user {
+    background-color: #1d1d80;
+    width: 70%;
+    margin: 5px auto;
     text-align: center;
 }
 

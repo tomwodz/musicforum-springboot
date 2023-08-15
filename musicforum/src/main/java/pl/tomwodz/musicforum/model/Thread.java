@@ -17,7 +17,7 @@ public class Thread {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String title;
 
     @ManyToOne
     private Topic topic;

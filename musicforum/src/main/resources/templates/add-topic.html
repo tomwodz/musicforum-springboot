@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <title>Music Forum</title>
     <link rel="stylesheet" href="/common.css">
-    <link rel="stylesheet" href="/topicandpost.css">
 </head>
 <body>
 <div th:replace="~{fragments.html :: logo}"></div>
 <div th:replace="~{fragments.html :: menu}"></div>
 <div id="content">
     <form method="post">
-        <input type="text" name="topicTitle" id="topicTitle" class="titleTopic" placeholder="Tytuł" th:field="*{topicModel.topicTitle}">
-        <input type="textarea" name="contextPost" id="contextPost" class="textarea" placeholder="Treść pierwszego posta..." th:field="*{postModel.contextPost}">
+        <input type="text" name="title" id="title" class="input" placeholder="Tytuł" th:field="*{topicModel.title}">
         <input type="submit" value="DODAJ TEMAT" class="button">
     </form>
 </div>

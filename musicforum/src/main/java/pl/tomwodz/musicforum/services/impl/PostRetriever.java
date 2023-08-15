@@ -15,7 +15,7 @@ public class PostRetriever implements IPostRetriever {
     private final IPostRepository postRepository;
 
     @Override
-    public List<Post> findByPostId(Long id) {
+    public List<Post> findByThreadId(Long id) {
         return this.postRepository.findByThreadId(id);
     }
 }

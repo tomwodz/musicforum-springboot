@@ -2,7 +2,6 @@ package pl.tomwodz.musicforum.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Value;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -41,6 +40,10 @@ public class User {
     public enum Role{
         ADMIN,
         USER
+    }
+
+    public User(Long id) {
+        this.id = id;
     }
 
 }
