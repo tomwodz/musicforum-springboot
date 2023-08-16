@@ -8,5 +8,6 @@ public class ModelUtils {
     public static void addCommonDataToModel(Model model, SessionData sessionData){
         model.addAttribute("logged", sessionData.isLogged());
         model.addAttribute("admin", sessionData.isAdmin());
+        model.addAttribute("idUser", sessionData.idUser());
     }
 }

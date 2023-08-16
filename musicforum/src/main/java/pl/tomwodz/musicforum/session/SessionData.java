@@ -25,4 +25,11 @@ public class SessionData {
         return this.user.getRole() == User.Role.ADMIN;
     }
 
+    public Long idUser(){
+        if(this.user == null){
+            return -1l;
+        }
+        return this.user.getId();
+    }
+
 }

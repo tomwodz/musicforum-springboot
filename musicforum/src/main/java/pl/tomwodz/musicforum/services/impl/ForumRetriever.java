@@ -25,18 +25,18 @@ public class ForumRetriever implements IForumRetriever {
 
     private final IPostRepository postRepository;
     @Override
-    public List<Topic> findAll() {
+    public List<Topic> findTopicAll() {
         return this.topicRepository.findAll();
     }
 
     @Override
-    public List<Thread> findByTopicId(Long id) {
+    public List<Thread> findThreadByTopicId(Long id) {
         return this.threadRepository.findByTopicIdOrderByIdDesc(id);
     }
 
     @Override
-    public List<Post> findByThreadId(Long id) {
-        return this.postRepository.findByThreadIdOrderByIdDesc(id);
+    public List<Post> findPostByThreadId(Long id) {
+        return this.postRepository.findByThreadId(id);
     }
 
 

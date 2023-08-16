@@ -8,10 +8,10 @@ import java.util.List;
 
 public interface IForumRetriever {
 
-    List<Topic> findAll();
+    List<Topic> findTopicAll();
 
-    List<Thread> findByTopicId(Long id);
+    List<Thread> findThreadByTopicId(Long id);
 
-    List<Post> findByThreadId(Long id);
+    List<Post> findPostByThreadId(Long id);
 
 }

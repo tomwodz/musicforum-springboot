@@ -26,9 +26,9 @@ public class TopicViewController {
     @GetMapping(path = "/{id}")
     public String getTopic(Model model, @PathVariable Long id) {
         ModelUtils.addCommonDataToModel(model, this.sessionData);
-        model.addAttribute("threadsByTopicId", this.forumRetriever.findByTopicId(id));
+        model.addAttribute("threadsByTopicId", this.forumRetriever.findThreadByTopicId(id));
         model.addAttribute("topicId", id);
-        return "topic";
+        return "thread";
     }
 
     @GetMapping(path = "/add")

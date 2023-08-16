@@ -26,37 +26,8 @@ public class ThreadViewController {
     private final IForumRetriever forumRetriever;
     private final IForumAdder forumAdder;
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public String getTread(Model model, @PathVariable Long id){
-        ModelUtils.addCommonDataToModel(model, this.sessionData);
-        model.addAttribute("postsByThreadId", this.forumRetriever.findByThreadId(id));
-        model.addAttribute("postModel", new Post());
-        return "thread";
-    }
-
-    @PostMapping(path = "/{id}")
-    public String addPost(Model model, @ModelAttribute Post post, @PathVariable Long id) {
-        ModelUtils.addCommonDataToModel(model, this.sessionData);
-        if (!post.getContent().equals("")) {
-            try {
-                Post postToSave = new Post();
-                postToSave.setThread(new Thread(id));
-                postToSave.setUser(new User(sessionData.getUser().getId()));
-                postToSave.setContent(post.getContent());
-                Post postSaved = this.forumAdder.addPost(postToSave);
-                model.addAttribute("info_message", "Dodano post do wątku.");
-                return "info_message";
-            } catch (Exception e) {
-                model.addAttribute("info_message", "Błąd.");
-                return "info_message";
-            }
-        }
-        model.addAttribute("threadModel", this.forumRetriever.findByThreadId(id));
-        return "thread";
-    }
-
     @GetMapping(path = "/add/{topicId}")
-    public String getTheardToAdd(Model model, @PathVariable Long topicId) {
+    public String getThreadToAdd(Model model, @PathVariable Long topicId) {
         ModelUtils.addCommonDataToModel(model, this.sessionData);
         model.addAttribute("threadModel", new Thread(topicId));
         return "add-thread";

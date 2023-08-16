@@ -21,7 +21,7 @@ public class ForumViewController {
     @RequestMapping(path = "/forum", method = RequestMethod.GET)
     public String main(Model model){
         ModelUtils.addCommonDataToModel(model, this.sessionData);
-        model.addAttribute("topics", this.forumRetriever.findAll());
+        model.addAttribute("topics", this.forumRetriever.findTopicAll());
         return "forum";
     }
 

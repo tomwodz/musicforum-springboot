@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Forum</title>
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/post.css">
+    <link rel="stylesheet" href="/button.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <div th:each="post : ${postsByThreadId}" class="post">
+        <div th:text="${post.user.login}" class="author"></div>
+        <div th:text="${post.content}" class="content"></div>
+        <div th:if="${admin}" class="update">
+            <a th:href="@{/view/forum/topic/thread/post/update/{id}(id=${post.id})}" class="button_update">EDYTUJ</a>
+        </div>
+        <div th:if="${admin}" class="delete">
+            <a th:href="@{/view/forum/topic/thread/post/delete/{id}(id=${post.id})}" class="button_delete">USUŃ</a>
+        </div>
+    </div>
+    <div th:if="${logged}">
+        <form method="post">
+            <input type="text" name="post" id="post" class="input" placeholder="Treść" th:field="*{postModel.content}">
+            <input type="submit" value="Dodaj Post" class="button">
+        </form>
+    </div>
+</div>
+</body>
+</html>

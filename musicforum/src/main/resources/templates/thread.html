@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <title>Music Forum</title>
     <link rel="stylesheet" href="/common.css">
-    <link rel="stylesheet" href="/post.css">
+    <link rel="stylesheet" href="/topic.css">
 </head>
 <body>
 <div th:replace="~{fragments.html :: logo}"></div>
 <div th:replace="~{fragments.html :: menu}"></div>
+
 <div id="content">
-    <div th:each="post : ${postsByThreadId}" class="topic">
-            <div th:text="${post.user.login}" class="author"></div>
-            <div th:text="${post.content}" class="content"></div>
+    <div th:each="thread : ${threadsByTopicId}" class="topic">
+        <div th:text="${thread.author.login}" class="author"></div>
+        <a th:href="@{/view/forum/topic/thread/post/{id}(id=${thread.id})}">
+            <div th:text="${thread.getTitle}" class="title"></div>
+        </a>
     </div>
-    <div th:if="${logged}">
-        <form method="post">
-            <input type="text" name="post" id="post" class="input" placeholder="Treść" th:field="*{postModel.content}">
-            <input type="submit" value="Dodaj Post" class="button">
-        </form>
-    </div>
+</div>
+<div class="menu_user">
+    <a th:if="${logged}" th:href="@{/view/forum/topic/thread/add/{topicId}(topicId=${topicId})}" class="button">Dodaj wątek</a>
 </div>
 </body>
 </html>
