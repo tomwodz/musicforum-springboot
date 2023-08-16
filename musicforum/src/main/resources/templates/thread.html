@@ -14,6 +14,12 @@
             <div th:text="${post.user.login}" class="author"></div>
             <div th:text="${post.content}" class="content"></div>
     </div>
+    <div th:if="${logged}">
+        <form method="post">
+            <input type="text" name="post" id="post" class="input" placeholder="Treść" th:field="*{postModel.content}">
+            <input type="submit" value="Dodaj Post" class="button">
+        </form>
+    </div>
 </div>
 </body>
 </html>

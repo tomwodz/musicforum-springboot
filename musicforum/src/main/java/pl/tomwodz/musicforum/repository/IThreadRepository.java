@@ -9,4 +9,6 @@ public interface IThreadRepository extends Repository <Thread, Long> {
 
     List<Thread> findByTopicId(Long id);
 
+    Thread save(Thread thread);
+
 }

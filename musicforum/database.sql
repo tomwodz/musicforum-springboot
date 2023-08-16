@@ -23,6 +23,15 @@ VALUES (1, 1, 'Koncert w Warszawie');
 INSERT INTO tthread (author_id, topic_id, title)
 VALUES (1, 1, 'Koncert w Łodzi');
 
+INSERT INTO tthread (author_id, topic_id, title)
+VALUES (2, 2, 'Sylwester');
+
+INSERT INTO tthread (author_id, topic_id, title)
+VALUES (1, 2, 'Koncert na gali');
+
+INSERT INTO tthread (author_id, topic_id, title)
+VALUES (2, 2, 'Koncert próbny');
+
 INSERT INTO tpost(thread_id, user_id, content)
 VALUES (1,1,'Super!');
 
@@ -31,3 +40,12 @@ VALUES (1,1,'Mega!');
 
 INSERT INTO tpost(thread_id, user_id, content)
 VALUES (1,1,'Świetnie!');
+
+INSERT INTO tpost(thread_id, user_id, content)
+VALUES (2,1,'Super!');
+
+INSERT INTO tpost(thread_id, user_id, content)
+VALUES (2,2,'Mega!');
+
+INSERT INTO tpost(thread_id, user_id, content)
+VALUES (2,1,'Świetnie!');

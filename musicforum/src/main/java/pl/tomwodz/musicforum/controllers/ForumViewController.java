@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.tomwodz.musicforum.services.ITopicRetriever;
+import pl.tomwodz.musicforum.services.IForumRetriever;
 import pl.tomwodz.musicforum.session.SessionData;
 
 @Controller
@@ -17,12 +17,11 @@ public class ForumViewController {
     @Resource
     SessionData sessionData;
 
-    private final ITopicRetriever topicRetriever;
-
+    private final IForumRetriever forumRetriever;
     @RequestMapping(path = "/forum", method = RequestMethod.GET)
     public String main(Model model){
         ModelUtils.addCommonDataToModel(model, this.sessionData);
-        model.addAttribute("topics", this.topicRetriever.findAll());
+        model.addAttribute("topics", this.forumRetriever.findAll());
         return "forum";
     }
 

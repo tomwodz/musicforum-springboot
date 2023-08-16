@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface IPostRepository extends Repository<Post, Long> {
     List<Post> findByThreadId(Long id);
+    Post save(Post post);
 
 }

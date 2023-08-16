@@ -9,17 +9,17 @@
 <body>
 <div th:replace="~{fragments.html :: logo}"></div>
 <div th:replace="~{fragments.html :: menu}"></div>
-<div class="menu_user">
-    <a th:if="${logged}" href="/view/forum/topic/add" class="button">Dodaj temat</a>
-</div>
+
 <div id="content">
     <div th:each="topic : ${topics}" class="topic">
         <div th:text="${topic.getAuthor.login}" class="author"></div>
         <a th:href="@{/view/forum/topic/{id}(id=${topic.id})}" class="title">
             <div th:text="${topic.title}"></div>
         </a>
-
     </div>
+</div>
+<div class="menu_user">
+    <a th:if="${logged}" href="/view/forum/topic/add" class="button">Dodaj temat</a>
 </div>
 </body>
 </html>

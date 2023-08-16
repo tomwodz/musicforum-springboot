@@ -25,4 +25,7 @@ public class Thread {
     @ManyToOne
     private User author;
 
+    public Thread(Long id) {
+        this.id = id;
+    }
 }

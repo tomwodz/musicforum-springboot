@@ -17,9 +17,12 @@ public class Topic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToOne
     private User author;
 
     private String title;
 
+    public Topic(Long id) {
+        this.id = id;
+    }
 }
