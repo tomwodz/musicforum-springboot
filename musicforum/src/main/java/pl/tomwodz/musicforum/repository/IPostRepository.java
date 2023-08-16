@@ -6,7 +6,7 @@ import pl.tomwodz.musicforum.model.Post;
 import java.util.List;
 
 public interface IPostRepository extends Repository<Post, Long> {
-    List<Post> findByThreadId(Long id);
+    List<Post> findByThreadIdOrderByIdDesc(Long id);
     Post save(Post post);
 
 }

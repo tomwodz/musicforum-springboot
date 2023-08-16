@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IThreadRepository extends Repository <Thread, Long> {
 
-    List<Thread> findByTopicId(Long id);
+    List<Thread> findByTopicIdOrderByIdDesc(Long id);
 
     Thread save(Thread thread);
 

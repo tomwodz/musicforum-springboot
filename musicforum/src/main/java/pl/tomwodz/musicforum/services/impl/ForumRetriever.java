@@ -31,12 +31,12 @@ public class ForumRetriever implements IForumRetriever {
 
     @Override
     public List<Thread> findByTopicId(Long id) {
-        return this.threadRepository.findByTopicId(id);
+        return this.threadRepository.findByTopicIdOrderByIdDesc(id);
     }
 
     @Override
     public List<Post> findByThreadId(Long id) {
-        return this.postRepository.findByThreadId(id);
+        return this.postRepository.findByThreadIdOrderByIdDesc(id);
     }
 
 

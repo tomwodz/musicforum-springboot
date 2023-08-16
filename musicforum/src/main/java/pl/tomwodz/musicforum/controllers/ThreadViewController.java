@@ -39,9 +39,11 @@ public class ThreadViewController {
         ModelUtils.addCommonDataToModel(model, this.sessionData);
         if (!post.getContent().equals("")) {
             try {
-                post.setThread(new Thread(id));
-                post.setUser(new User(sessionData.getUser().getId()));
-                this.forumAdder.addPost(post);
+                Post postToSave = new Post();
+                postToSave.setThread(new Thread(id));
+                postToSave.setUser(new User(sessionData.getUser().getId()));
+                postToSave.setContent(post.getContent());
+                Post postSaved = this.forumAdder.addPost(postToSave);
                 model.addAttribute("info_message", "Dodano post do wątku.");
                 return "info_message";
             } catch (Exception e) {
