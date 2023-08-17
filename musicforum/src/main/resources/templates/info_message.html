@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Music Forum</title>
     <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/message.css">
 </head>
 <body>
 <div th:replace="~{fragments.html :: logo}"></div>
 <div th:replace="~{fragments.html :: menu}"></div>
-<div id="content" th:text="${info_message}">
+<div id="content" th:text="${info_message}" class="message">
 </div>
 </body>
 </html>

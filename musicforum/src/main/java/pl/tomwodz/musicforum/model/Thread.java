@@ -3,6 +3,8 @@ package pl.tomwodz.musicforum.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

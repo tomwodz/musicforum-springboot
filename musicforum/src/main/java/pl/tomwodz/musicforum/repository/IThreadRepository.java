@@ -11,4 +11,5 @@ public interface IThreadRepository extends Repository <Thread, Long> {
 
     Thread save(Thread thread);
 
+    void deleteById(Long id);
 }

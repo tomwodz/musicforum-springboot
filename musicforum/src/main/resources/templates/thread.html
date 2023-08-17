@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <title>Music Forum</title>
     <link rel="stylesheet" href="/common.css">
-    <link rel="stylesheet" href="/topic.css">
+    <link rel="stylesheet" href="/thread.css">
+    <link rel="stylesheet" href="/button.css">
 </head>
 <body>
 <div th:replace="~{fragments.html :: logo}"></div>
 <div th:replace="~{fragments.html :: menu}"></div>
 
 <div id="content">
-    <div th:each="thread : ${threadsByTopicId}" class="topic">
+    <div th:each="thread : ${threadsByTopicId}" class="thread">
         <div th:text="${thread.author.login}" class="author"></div>
-        <a th:href="@{/view/forum/topic/thread/post/{id}(id=${thread.id})}">
-            <div th:text="${thread.getTitle}" class="title"></div>
-        </a>
+        <div class="title">
+            <a th:href="@{/view/forum/post/{id}(id=${thread.id})}">
+                <div th:text="${thread.getTitle}"></div>
+            </a>
+        </div>
+        <div th:if="${admin}" class="update">
+        <!--    <a th:href="@{/view/forum/thread/update/{id}(id=${thread.id})}" class="button_update">EDYTUJ</a>-->
+        </div>
+        <div th:if="${admin}" class="delete">
+            <a th:href="@{/view/forum/thread/delete/{id}(id=${thread.id})}" class="button_delete">USUŃ</a>
+        </div>
     </div>
 </div>
 <div class="menu_user">
-    <a th:if="${logged}" th:href="@{/view/forum/topic/thread/add/{topicId}(topicId=${topicId})}" class="button">Dodaj wątek</a>
+    <a th:if="${logged}" th:href="@{/view/forum/thread/add/{topicId}(topicId=${topicId})}" class="button">Dodaj wątek</a>
 </div>
 </body>
 </html>

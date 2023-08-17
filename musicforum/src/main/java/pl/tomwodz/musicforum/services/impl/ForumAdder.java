@@ -12,6 +12,8 @@ import pl.tomwodz.musicforum.repository.IThreadRepository;
 import pl.tomwodz.musicforum.repository.ITopicRepository;
 import pl.tomwodz.musicforum.services.IForumAdder;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 @Transactional
@@ -33,7 +35,9 @@ public class ForumAdder implements IForumAdder {
     }
 
     @Override
-    public Post addPost(Post post) {
+    public Optional<Post> addPost(Post post) {
         return this.postRepository.save(post);
     }
+
+
 }

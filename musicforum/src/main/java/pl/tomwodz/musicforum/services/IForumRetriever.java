@@ -5,6 +5,7 @@ import pl.tomwodz.musicforum.model.Thread;
 import pl.tomwodz.musicforum.model.Topic;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IForumRetriever {
 
@@ -13,5 +14,8 @@ public interface IForumRetriever {
     List<Thread> findThreadByTopicId(Long id);
 
     List<Post> findPostByThreadId(Long id);
+
+    Optional<Post> findPostById(Long id);
+
 
 }

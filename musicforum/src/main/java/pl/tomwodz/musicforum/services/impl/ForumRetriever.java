@@ -1,6 +1,5 @@
 package pl.tomwodz.musicforum.services.impl;
 
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -13,6 +12,7 @@ import pl.tomwodz.musicforum.repository.ITopicRepository;
 import pl.tomwodz.musicforum.services.IForumRetriever;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -38,6 +38,8 @@ public class ForumRetriever implements IForumRetriever {
     public List<Post> findPostByThreadId(Long id) {
         return this.postRepository.findByThreadId(id);
     }
-
-
+    @Override
+    public Optional<Post> findPostById(Long id) {
+        return this.postRepository.findById(id);
+    }
 }

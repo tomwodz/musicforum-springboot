@@ -15,10 +15,10 @@
         <div th:text="${post.user.login}" class="author"></div>
         <div th:text="${post.content}" class="content"></div>
         <div th:if="${admin}" class="update">
-            <a th:href="@{/view/forum/topic/thread/post/update/{id}(id=${post.id})}" class="button_update">EDYTUJ</a>
+            <a th:href="@{/view/forum/post/update/{id}(id=${post.id})}" class="button_update">EDYTUJ</a>
         </div>
         <div th:if="${admin}" class="delete">
-            <a th:href="@{/view/forum/topic/thread/post/delete/{id}(id=${post.id})}" class="button_delete">USUŃ</a>
+            <a th:href="@{/view/forum/post/delete/{id}(id=${post.id})}" class="button_delete">USUŃ</a>
         </div>
     </div>
     <div th:if="${logged}">
