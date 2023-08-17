@@ -8,6 +8,9 @@ VALUES ('tomwodz','21232f297a57a5a743894a0e4a801fc3','Tomek','Wodz','twodzinski@
 INSERT INTO ttopic (author_id, title)
 VALUES (1, 'Ignacy');
 
+INSERT INTO ttopic (author_id, title)
+VALUES (1, 'sanah');
+
 INSERT INTO tthread (author_id, topic_id, title)
 VALUES (1, 1, 'Koncert w Krakowie');
 
@@ -18,13 +21,13 @@ INSERT INTO tthread (author_id, topic_id, title)
 VALUES (1, 1, 'Koncert w Łodzi');
 
 INSERT INTO tthread (author_id, topic_id, title)
-VALUES (2, 1, 'Sylwester');
+VALUES (2, 2, 'Sylwester');
 
 INSERT INTO tthread (author_id, topic_id, title)
-VALUES (1, 1, 'Koncert na gali');
+VALUES (1, 2, 'Koncert na gali');
 
 INSERT INTO tthread (author_id, topic_id, title)
-VALUES (2, 1, 'Koncert próbny');
+VALUES (2, 2, 'Koncert próbny');
 
 INSERT INTO tpost(thread_id, user_id, content)
 VALUES (1,1,'Super!');
@@ -34,3 +37,5 @@ VALUES (1,1,'Mega!');
 
 INSERT INTO tpost(thread_id, user_id, content)
 VALUES (1,1,'Świetnie!');
+
+

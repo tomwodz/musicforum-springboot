@@ -20,9 +20,7 @@ import java.util.Optional;
 public class ForumRetriever implements IForumRetriever {
 
     private final ITopicRepository topicRepository;
-
     private final IThreadRepository threadRepository;
-
     private final IPostRepository postRepository;
     @Override
     public List<Topic> findTopicAll() {
@@ -41,5 +39,15 @@ public class ForumRetriever implements IForumRetriever {
     @Override
     public Optional<Post> findPostById(Long id) {
         return this.postRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Thread> findThreadById(Long id) {
+        return this.threadRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Topic> findTopicById(Long id) {
+        return this.topicRepository.findById(id);
     }
 }

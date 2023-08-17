@@ -22,7 +22,7 @@ public class ForumViewController {
     public String main(Model model){
         ModelUtils.addCommonDataToModel(model, this.sessionData);
         model.addAttribute("topics", this.forumRetriever.findTopicAll());
-        return "forum";
+        return "topic";
     }
 
 }

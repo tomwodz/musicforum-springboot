@@ -40,6 +40,7 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
         if (this.userRepository.findByLogin(user.getLogin()).isPresent()) {
             throw new LoginAlreadyExistException();
         }
+        user.setRole(User.Role.USER);
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         this.userRepository.save(user);
     }

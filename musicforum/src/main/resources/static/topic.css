@@ -9,5 +9,18 @@
     font-size: 22px;
     margin: 5px;
     display: inline-block;
+    width: 60%;
+}
+
+.topic .update {
+    margin: 5px;
+    display: inline-block;
+    width: 10%;
+}
+
+.topic .delete{
+    margin: 5px;
+    display: inline-block;
+    width: 10%;
 }
 

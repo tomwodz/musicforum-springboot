@@ -11,7 +11,11 @@ import pl.tomwodz.musicforum.model.Topic;
 import pl.tomwodz.musicforum.model.User;
 import pl.tomwodz.musicforum.services.IForumAdder;
 import pl.tomwodz.musicforum.services.IForumDeleter;
+import pl.tomwodz.musicforum.services.IForumRetriever;
+import pl.tomwodz.musicforum.services.IForumUpdater;
 import pl.tomwodz.musicforum.session.SessionData;
+
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -24,6 +28,8 @@ public class ThreadViewController {
 
     private final IForumAdder forumAdder;
     private final IForumDeleter forumDeleter;
+    private final IForumRetriever forumRetriever;
+    private final IForumUpdater forumUpdater;
 
     @GetMapping(path = "/add/{topicId}")
     public String getThreadToAdd(Model model, @PathVariable Long topicId) {
@@ -56,6 +62,33 @@ public class ThreadViewController {
         try{
             this.forumDeleter.deleteThreadByIdAndDeletePostsByThreadId(id);
             model.addAttribute("info_message", "Usunięto wątek z tematu.");
+            return "info_message";
+        } catch (Exception e){
+            model.addAttribute("info_message", "Błąd.");
+            return "info_message";
+        }
+    }
+
+    @GetMapping(path="/update/{id}")
+    public String getThreadByIdToUpdate(Model model, @PathVariable Long id){
+        ModelUtils.addCommonDataToModel(model, this.sessionData);
+        Optional<Thread> threadBox = this.forumRetriever.findThreadById(id);
+        if(threadBox.isEmpty() || !sessionData.isAdmin()) {
+            model.addAttribute("info_message", "Nie znaleziono wątku o id: " + id +" lub nie jesteś adminem.");
+            return "info_message";
+        }
+        model.addAttribute("threadModel", threadBox.get());
+        return "add-thread";
+    }
+
+    @PostMapping(path="/update/{id}")
+    public String updateThreadById(@ModelAttribute Thread thread, Model model, @PathVariable Long id){
+        ModelUtils.addCommonDataToModel(model, this.sessionData);
+        Thread newThread = new Thread();
+        newThread.setTitle(thread.getTitle());
+        try {
+            this.forumUpdater.updateThreadById(id, newThread);
+            model.addAttribute("info_message", "Zaktualizowano wątek id: " + id);
             return "info_message";
         } catch (Exception e){
             model.addAttribute("info_message", "Błąd.");

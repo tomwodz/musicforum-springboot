@@ -38,7 +38,7 @@ public class AuthenticationViewController {
         try {
             this.authenticationService.authenticate(login, password);
             if(sessionData.isLogged()){
-                return "redirect:/main";
+                return "redirect:/view/forum";
             }
         }
         catch (UserValidationException e){}
@@ -48,7 +48,7 @@ public class AuthenticationViewController {
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
     public String logout(){
         this.authenticationService.logout();
-        return "redirect:/main";
+        return "redirect:/view/forum";
     }
 
     @RequestMapping(path = "/register", method = RequestMethod.GET)

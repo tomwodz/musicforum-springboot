@@ -17,5 +17,7 @@ public interface IForumRetriever {
 
     Optional<Post> findPostById(Long id);
 
+    Optional<Thread> findThreadById(Long id);
 
+    Optional<Topic> findTopicById(Long id);
 }

@@ -20,7 +20,7 @@
             </a>
         </div>
         <div th:if="${admin}" class="update">
-        <!--    <a th:href="@{/view/forum/thread/update/{id}(id=${thread.id})}" class="button_update">EDYTUJ</a>-->
+            <a th:href="@{/view/forum/thread/update/{id}(id=${thread.id})}" class="button_update">EDYTUJ</a>
         </div>
         <div th:if="${admin}" class="delete">
             <a th:href="@{/view/forum/thread/delete/{id}(id=${thread.id})}" class="button_delete">USUŃ</a>
@@ -28,7 +28,8 @@
     </div>
 </div>
 <div class="menu_user">
-    <a th:if="${logged}" th:href="@{/view/forum/thread/add/{topicId}(topicId=${topicId})}" class="button">Dodaj wątek</a>
+    <a th:if="${logged}" th:href="@{/view/forum/thread/add/{topicId}(topicId=${topicId})}" class="button">Dodaj
+        wątek</a>
 </div>
 </body>
 </html>

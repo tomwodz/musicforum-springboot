@@ -93,8 +93,8 @@ public class PostViewController {
         newPost.setContent(post.getContent());
         newPost.setUser(post.getUser());
         try {
-            this.forumUpdater.updateById(id, newPost);
-            model.addAttribute("info_message", "Update post id: " + id);
+            this.forumUpdater.updatePostById(id, newPost);
+            model.addAttribute("info_message", "Zaktualizowano post id: " + id);
             return "info_message";
         } catch (Exception e){
             model.addAttribute("info_message", "Błąd.");
