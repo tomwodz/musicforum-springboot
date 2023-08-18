@@ -1,7 +1,7 @@
 .button_delete {
     font-weight: 600;
-    font-size: 16px;
-    margin: 5px 10px;
+    font-size: 12px;
+    margin: 5px 2px;
     text-align: center;
     text-decoration: none;
     border: 2px solid #640b0b;
@@ -15,8 +15,8 @@
 
 .button_delete:hover {
     font-weight: 600;
-    font-size: 16px;
-    margin: 5px 10px;
+    font-size: 12px;
+    margin: 5px 2px;
     text-align: center;
     text-decoration: none;
     border: 2px solid #640b0b;
@@ -30,8 +30,8 @@
 
 .button_update {
     font-weight: 600;
-    font-size: 16px;
-    margin: 5px 10px;
+    font-size: 12px;
+    margin: 5px 2px;
     text-align: center;
     text-decoration: none;
     border: 2px solid #142345;
@@ -45,8 +45,8 @@
 
 .button_update:hover {
     font-weight: 600;
-    font-size: 16px;
-    margin: 5px 10px;
+    font-size: 12px;
+    margin: 5px 2px;
     text-align: center;
     text-decoration: none;
     border: 2px solid #142345;

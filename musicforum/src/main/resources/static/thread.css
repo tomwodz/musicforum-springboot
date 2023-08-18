@@ -3,7 +3,7 @@
     border: 2px solid #101046;
     text-align: left;
     margin: 10px;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .thread .author{
@@ -11,6 +11,8 @@
     margin: 5px;
     display: inline-block;
     width: 10%;
+    text-align: center;
+    color: #C71585;
 }
 
 .thread .title{

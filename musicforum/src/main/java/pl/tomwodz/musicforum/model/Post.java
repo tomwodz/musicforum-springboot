@@ -3,6 +3,9 @@ package pl.tomwodz.musicforum.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -23,5 +26,21 @@ public class Post {
     @ManyToOne
     private Thread thread;
 
+    @Column(nullable = false)
     private String content;
+
+    @Column(nullable = false)
+    private LocalDateTime dateCreated;
+
+    @Column(nullable = false)
+    private LocalDateTime dateUpdated;
+
+    public String getDateCreateFormatted(){
+        return this.dateCreated.format(
+                DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
+    }
+    public String getDateUpdatedFormatted(){
+        return this.dateCreated.format(
+                DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
+    }
 }

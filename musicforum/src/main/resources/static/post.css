@@ -6,29 +6,45 @@
     font-size: 20px;
 }
 
-.post .author{
+.post .info{
+    display: block;
+}
+
+.post .info .author{
     font-size: 14px;
     margin: 5px;
     display: inline-block;
-    width: 10%;
+    width: 15%;
+    text-align: center;
+    color: #C71585;
 }
 
-.post .content{
+.post .info .content{
     font-size: 14px;
     margin: 5px;
     display: inline-block;
-    width: 60%;
+    width: 70%;
+    color: #191970;
 }
 
-.post .update {
-    margin: 5px;
+.post .date_menu {
     display: inline-block;
-    width: 10%;
+    font-size: 12px;
+    width: 95%;
 }
 
-.post .delete{
-    margin: 5px;
+.post .date_menu .date{
+    font-size: 12px;
     display: inline-block;
-    width: 10%;
+    text-align: right;
+    color: #C71585;
+    width: 50%;
 }
+
+.post .date_menu .menu{
+    display: inline-block;
+    text-align: left;
+    width: 45%;
+}
+
 

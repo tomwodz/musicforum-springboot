@@ -15,7 +15,7 @@
     <div th:each="topic : ${topics}" class="topic">
         <div th:text="${topic.getAuthor.login}" class="author"></div>
         <div class="title"><a th:href="@{/view/forum/topic/{id}(id=${topic.id})}">
-            <div th:text="${topic.title}"></div>
+            <div th:text="${topic.title} + ' (' +${topic.getThreads().size()} + ')'"></div>
         </a></div>
 
         <div th:if="${admin}" class="update">

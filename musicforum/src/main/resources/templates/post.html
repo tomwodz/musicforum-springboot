@@ -12,18 +12,26 @@
 <div th:replace="~{fragments.html :: menu}"></div>
 <div id="content">
     <div th:each="post : ${postsByThreadId}" class="post">
-        <div th:text="${post.user.login}" class="author"></div>
-        <div th:text="${post.content}" class="content"></div>
-        <div th:if="${admin}" class="update">
-            <a th:href="@{/view/forum/post/update/{id}(id=${post.id})}" class="button_update">EDYTUJ</a>
+        <div class="info">
+            <div th:text="${post.user.login}" class="author"></div>
+            <div th:text="${post.content}" class="content"></div>
         </div>
-        <div th:if="${admin}" class="delete">
-            <a th:href="@{/view/forum/post/delete/{id}(id=${post.id})}" class="button_delete">USUŃ</a>
+        <div class="date_menu">
+            <div class="menu">
+                    <a th:if="${admin}" th:href="@{/view/forum/post/update/{id}(id=${post.id})}" class="button_update">EDYTUJ</a>
+                    <a th:if="${admin}" th:href="@{/view/forum/post/delete/{id}(id=${post.id})}" class="button_delete">USUŃ</a>
+            </div>
+            <div class="date">
+                <div th:text="'Data dodania: ' + ${post.getDateCreateFormatted()}"></div>
+                <div th:if="${admin}" th:text="'Data edycji: ' + ${post.getDateUpdatedFormatted()}"></div>
+            </div>
+
         </div>
     </div>
     <div th:if="${logged}">
         <form method="post">
-            <input type="text" name="post" id="post" class="input" placeholder="Treść" th:field="*{postModel.content}">
+            <input type="text" name="post" id="post" class="input" placeholder="Treść"
+                   th:field="*{postModel.content}">
             <input type="submit" value="Dodaj Post" class="button">
         </form>
     </div>

@@ -2,6 +2,7 @@ package pl.tomwodz.musicforum.services.impl;
 
 import jakarta.annotation.Resource;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
 import pl.tomwodz.musicforum.exception.LoginAlreadyExistException;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Log4j2
 public class AuthenticationServiceImpl implements IAuthenticationService {
 
    private final IUserRepository userRepository;
@@ -29,6 +31,7 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
             userBox.get().setPassword(null);
             this.sessionData.setUser(userBox.get());
         }
+        log.info("login user by: " + login);
     }
     @Override
     public void logout() {
@@ -43,5 +46,6 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
         user.setRole(User.Role.USER);
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         this.userRepository.save(user);
+        log.info("registered new user ");
     }
 }

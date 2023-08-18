@@ -24,12 +24,13 @@ public class ForumDeleter implements IForumDeleter {
     private final ITopicRepository topicRepository;
     @Override
     public void deletePostById(Long id) {
-
+        log.info("! deleted post by id: " + id);
         this.postRepository.deleteById(id);
     }
 
     @Override
     public void deleteThreadByIdAndDeletePostsByThreadId(Long id) {
+        log.info("!! deleted thread by id: " + id);
         List<Post> postsToDelete = this.postRepository.findByThreadId(id);
         postsToDelete.stream()
                 .forEach(p -> postRepository.deleteById(p.getId()));
@@ -38,6 +39,7 @@ public class ForumDeleter implements IForumDeleter {
 
     @Override
     public void deleteTopicByIdAndThreadsByTopicIdAndDeletePostsByThreadId(Long id) {
+        log.info("!!! deleted topic by id: " + id);
         List<Thread> threadsToDelete = this.threadRepository.findByTopicIdOrderByIdDesc(id);
         threadsToDelete.stream()
                 .forEach(th-> deleteThreadByIdAndDeletePostsByThreadId(th.getId()));

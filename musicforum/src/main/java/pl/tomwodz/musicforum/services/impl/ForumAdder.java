@@ -12,6 +12,7 @@ import pl.tomwodz.musicforum.repository.IThreadRepository;
 import pl.tomwodz.musicforum.repository.ITopicRepository;
 import pl.tomwodz.musicforum.services.IForumAdder;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -31,13 +32,17 @@ public class ForumAdder implements IForumAdder {
     }
     @Override
     public Thread addThread(Thread thread) {
+        log.info("adding new thread: " + thread.getTitle());
         return this.threadRepository.save(thread);
     }
 
     @Override
     public Optional<Post> addPost(Post post) {
+        log.info("adding new post by: " + post.getUser());
+        LocalDateTime dateTimeNow = LocalDateTime.now();
+        post.setDateCreated(dateTimeNow);
+        post.setDateUpdated(dateTimeNow);
         return this.postRepository.save(post);
     }
-
 
 }

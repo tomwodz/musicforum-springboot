@@ -27,6 +27,9 @@ public class Thread {
     @ManyToOne
     private User author;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "thread")
+    private List<Post> posts;
+
     public Thread(Long id) {
         this.id = id;
     }

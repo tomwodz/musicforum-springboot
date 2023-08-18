@@ -16,7 +16,7 @@
         <div th:text="${thread.author.login}" class="author"></div>
         <div class="title">
             <a th:href="@{/view/forum/post/{id}(id=${thread.id})}">
-                <div th:text="${thread.getTitle}"></div>
+                <div th:text="${thread.getTitle} + ' (' +${thread.getPosts().size()} + ')'"></div>
             </a>
         </div>
         <div th:if="${admin}" class="update">
