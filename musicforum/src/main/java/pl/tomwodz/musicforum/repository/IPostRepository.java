@@ -10,12 +10,15 @@ import java.util.Optional;
 
 public interface IPostRepository extends Repository<Post, Long> {
     List<Post> findByThreadId(Long id);
+
+    List<Post> findAll();
+
     Optional<Post> save(Post post);
     Optional<Post> findById(Long id);
 
     @Modifying
     void deleteById(Long id);
     @Modifying
-    @Query("UPDATE Post p SET p.content = :#{#newPost.content} WHERE p.id = :id")
+    @Query("UPDATE Post p SET p.content = :#{#newPost.content}, p.dateUpdated= :#{#newPost.dateUpdated} WHERE p.id = :id")
     void updateById(Long id, Post newPost);
 }

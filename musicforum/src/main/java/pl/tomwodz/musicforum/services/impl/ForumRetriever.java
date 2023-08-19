@@ -36,6 +36,16 @@ public class ForumRetriever implements IForumRetriever {
     public List<Post> findPostByThreadId(Long id) {
         return this.postRepository.findByThreadId(id);
     }
+
+    @Override
+    public List<Post> findPostsByCreatedDate(Long limit) {
+        return this.postRepository.findAll()
+                .stream()
+                .sorted((p1, p2) -> p2.getId().compareTo(p1.getId()))
+                .limit(limit)
+                .toList(); //TODO training to change
+    }
+
     @Override
     public Optional<Post> findPostById(Long id) {
         return this.postRepository.findById(id);

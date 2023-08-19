@@ -15,6 +15,8 @@ public interface IForumRetriever {
 
     List<Post> findPostByThreadId(Long id);
 
+    List<Post> findPostsByCreatedDate(Long limit);
+
     Optional<Post> findPostById(Long id);
 
     Optional<Thread> findThreadById(Long id);

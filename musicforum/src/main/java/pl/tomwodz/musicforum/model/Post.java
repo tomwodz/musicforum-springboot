@@ -20,7 +20,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @ManyToOne
@@ -40,7 +40,7 @@ public class Post {
                 DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
     }
     public String getDateUpdatedFormatted(){
-        return this.dateCreated.format(
+        return this.dateUpdated.format(
                 DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
     }
 }

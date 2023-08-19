@@ -29,5 +29,14 @@
 <div class="menu_user">
     <a th:if="${logged}" href="/view/forum/topic/add" class="button">Dodaj temat</a>
 </div>
+<div id="content-posts">
+    <div>Ostatnie posty: </div>
+    <div th:each="post : ${posts}" class="topic">
+        <div th:text="${post.user.login}" class="author"></div>
+        <div class="title"><a th:href="@{/view/forum/post/{id}(id=${post.thread.id})}">
+            <div th:text="${post.content}" class="title"></div>
+        </a></div>
+    </div>
+</div>
 </body>
 </html>

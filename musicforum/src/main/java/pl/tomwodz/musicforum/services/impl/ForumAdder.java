@@ -38,7 +38,7 @@ public class ForumAdder implements IForumAdder {
 
     @Override
     public Optional<Post> addPost(Post post) {
-        log.info("adding new post by: " + post.getUser());
+        log.info("adding new post by: ");
         LocalDateTime dateTimeNow = LocalDateTime.now();
         post.setDateCreated(dateTimeNow);
         post.setDateUpdated(dateTimeNow);
